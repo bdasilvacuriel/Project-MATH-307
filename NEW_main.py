@@ -33,16 +33,34 @@ A1r=S[0]*UVT
 plt.imshow(A1r, interpolation='nearest')
 plt.show()
 
-
+# Part d
 # dont think I'm adding them correctly?
 
-for i in range(0,50):
+
+
+for i in range(0,10):
     Ai=np.zeros(A.shape)
     Ai=Ai+(S[i]*U[:,i]*VT[i,:])
     plt.imshow(Ai,interpolation='nearest')
     plt.show()
-   
 
+Ak=Ai
 
+# e
+
+fig = plt.figure()
+
+# First subplot for image A
+ax1 = fig.add_subplot(1, 2, 1)  # 1 row, 2 columns, first subplot
+ax1.imshow(A, interpolation='nearest')
+ax1.set_title('Image A')
+
+# Second subplot for image Ak
+ax2 = fig.add_subplot(1, 2, 2)  # 1 row, 2 columns, second subplot
+ax2.imshow(Ak, interpolation='nearest')
+ax2.set_title('Image Ak')
+
+# Show the figure with both images
+plt.show()
 
 
