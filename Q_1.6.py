@@ -12,7 +12,8 @@ for i in range(1,6):
     W.append(R@Q)
 print(np.round(W[1:6],2))
 eigenvalues = np.diagonal(W[5])
-print('Eigenvalues are:' ,eigenvalues)
+print('Eigenvalues are:' ,np.round(eigenvalues,2))
+## check rounding
 
 
 B=np.array([[1,1]
