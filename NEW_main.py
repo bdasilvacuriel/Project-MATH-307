@@ -15,9 +15,8 @@ print(A.shape,"\n")
 plt.imshow(A, interpolation='nearest',cmap='gray')
 plt.show()
 
-At=A.T
 
-U, S, VT = np.linalg.svd(At@A)
+U, S, VT = np.linalg.svd(A)
 print("U matrix:\n", U)
 print("Singular values:\n", S)
 print("V^T matrix:\n", VT)
@@ -36,17 +35,26 @@ plt.show()
 # Part d
 # dont think I'm adding them correctly?
 
+# For A2
 
+UVT2=np.outer(U[:,1],VT[1,:])
+A2=S[1]*UVT2
 
-for i in range(0,10):
-    Ai=np.zeros(A.shape)
+plt.imshow(A2, interpolation='nearest',cmap='gray')
+plt.show()
+
+Ak=np.add(A1r,A2)
+
+plt.imshow(Ak, interpolation='nearest',cmap='gray')
+plt.show()
+
+Ai=np.zeros(A.shape)
+for i in range(0,50):
     ## matrice addition
-    Ai=Ai+(S[i]*U[:,i]*VT[i,:])
-    plt.imshow(Ai,interpolation='nearest',cmap='gray')
-    plt.show()
+    NewAddition=S[i]*(np.outer(U[:,i],VT[i,:]))
+    Ai=Ai+NewAddition
 
 Ak=Ai
-
 # e
 
 fig = plt.figure()
