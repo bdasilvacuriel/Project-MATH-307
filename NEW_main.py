@@ -53,6 +53,7 @@ for i in range(0,50):
     ## matrice addition
     NewAddition=S[i]*(np.outer(U[:,i],VT[i,:]))
     Ai=Ai+NewAddition
+#TODO experiment how many make an acceptable image
 
 Ak=Ai
 # e
@@ -67,9 +68,31 @@ ax1.set_title('Image A')
 # Second subplot for image Ak
 ax2 = fig.add_subplot(1, 2, 2)  # 1 row, 2 columns, second subplot
 ax2.imshow(Ak, interpolation='nearest',cmap='gray')
-ax2.set_title('Image Ak')
+ax2.set_title('Image Ak (50)')
 
 # Show the figure with both images
 plt.show()
 
+Aw=np.zeros(A.shape)
+for i in range(0,75):
+    ## matrice addition
+    NewAddition=S[i]*(np.outer(U[:,i],VT[i,:]))
+    Ai=Ai+NewAddition
+#TODO experiment how many make an acceptable image
 
+Aw=Ai
+
+fig = plt.figure()
+
+# First subplot for image A
+ax1 = fig.add_subplot(1, 2, 1)  # 1 row, 2 columns, first subplot
+ax1.imshow(A, interpolation='nearest',cmap='gray')
+ax1.set_title('Image A')
+
+# Second subplot for image Ak
+ax2 = fig.add_subplot(1, 2, 2)  # 1 row, 2 columns, second subplot
+ax2.imshow(Aw, interpolation='nearest',cmap='gray')
+ax2.set_title('Image Aw (75)')
+
+# Show the figure with both images
+plt.show()
